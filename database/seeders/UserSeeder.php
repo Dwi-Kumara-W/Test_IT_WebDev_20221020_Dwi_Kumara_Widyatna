@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             [
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => '$2y$10$3GtUx.aB0Mqn5RvOUtaFg.W5ME1/8IsnrXu14zsH0tdt8xSJ/cwkW'
+            'password' => app('hash')->make('admin'),
             ]
         ];
 

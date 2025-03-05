@@ -11,6 +11,7 @@ class Book extends Model
 
     protected $fillable = [
         'title',
+        'file',
         'description',
         'image_link',
         'book_links',

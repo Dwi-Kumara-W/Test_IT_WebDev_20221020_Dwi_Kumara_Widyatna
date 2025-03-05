@@ -45,7 +45,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src="{{ $book->image_link }}" class="card-img-top" alt="...">
+                            {{-- <img src="{{ $book->image_link }}" class="card-img-top" alt="..."> --}}
+                            <img class="card-img-top" alt="..." src="{{ url('/'.$book->file) }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $book->title }}</h5>
                                 <p class="card-text">{{ $book->description }}</p>

@@ -36,9 +36,22 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
-
-
-        $book = Book::create($request->all());
+        $this->validate($request, [
+			'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+		]);
+        $file = $request->file('file');
+ 
+		$nama_file = time()."_".$file->getClientOriginalName();
+ 
+		$tujuan_upload = 'data_file';
+		$file->move($tujuan_upload,$nama_file);
+        $book = Book::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image_link' => $request->image_link,
+            'book_links' => $request->book_links,
+            'file' => 'data_file/'.$nama_file,
+        ]);
 
         if($book){
             Session::flash('status', 'success');
